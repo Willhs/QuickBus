@@ -4,6 +4,8 @@ import android.os.AsyncTask;
 
 import java.util.List;
 
+import team.awesome.quickbus.bus.Arrival;
+
 public class GetArrivalsTask extends AsyncTask<Integer, Void, List<Arrival>>{
 
 	@Override

@@ -20,6 +20,8 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
+        <!-- You may have to be added to quickbus project on google api console for this key to work
+        Maps will not display properly if key is invalid. -->
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyCA8B9gFoMPUU-RAVH8hy6Da6C2JFK-Lxw"/>

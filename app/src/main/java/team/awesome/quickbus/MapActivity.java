@@ -16,19 +16,20 @@ public class MapActivity extends Activity {
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        /*super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.map_activity);
         
         map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
-        if (map == null) System.err.println("map is null");
+        if (map == null) System.err.println("map couldn't be found");
         
         
         // intialise the camera to be on the user location
         map.setMyLocationEnabled(true);
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         Location currentPos = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        map.animateCamera( CameraUpdateFactory.newLatLngZoom(new LatLng(currentPos.getLatitude(), currentPos.getLongitude()), 14f));
-        */
+        map.moveCamera( CameraUpdateFactory.newLatLngZoom(new LatLng(currentPos.getLatitude(), currentPos.getLongitude()), 14f));
+
+        /*
         TextView tv = (TextView) findViewById(R.layout.test_text_view);
         
         StringBuilder s = new StringBuilder();
@@ -38,7 +39,7 @@ public class MapActivity extends Activity {
         }
         
         tv.setText(s);
-        setContentView(tv);
+        setContentView(tv);*/
     }
     
     

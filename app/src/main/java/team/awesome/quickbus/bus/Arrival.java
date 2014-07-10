@@ -1,4 +1,4 @@
-package team.awesome.quickbus;
+package team.awesome.quickbus.bus;
 import android.graphics.Color;
 
 import java.util.Calendar;
@@ -42,7 +42,7 @@ public class Arrival {
 
 
 	public String toString(){
-		return "number "+number+" to "+service+" at "+date.getTime().toString();
+		return "number "+number+" to "+service+" at "+date.getTime();
 	}
 
 	

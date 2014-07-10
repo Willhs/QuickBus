@@ -1,38 +1,34 @@
 package team.awesome.quickbus;
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
-import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 import android.graphics.Color;
+
+import team.awesome.quickbus.bus.Arrival;
 
 public class Parser {
 
 	/**
 	 * Gets the raw HTML code from a URL  (thanks will)
 	 * @param urlString
-	 * @return
+	 * @return html response
 	 */
 	public static String fetchHTML(String urlString) {	
 		try{
 			
 			URL url = new URL(urlString);
 			HttpURLConnection httpCon = (HttpURLConnection) url.openConnection();
-			httpCon.addRequestProperty(
-					"User-Agent",
-					"Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.17 Safari/537.36"); // Chrome/20
-																																		// worked
-																																		// too
+			httpCon.addRequestProperty( // TODO: make relevant for android
+					"User-Agent","Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 " +
+                            "(KHTML, like Gecko) Chrome/30.0.1599.17 Safari/537.36"); // Chrome/20 worked too
+
 			BufferedReader in = new BufferedReader(new InputStreamReader(
 					httpCon.getInputStream()));
 			
@@ -55,9 +51,7 @@ public class Parser {
 		String baseURL = "http://www.metlink.org.nz/stop/";
 		String fullURL = baseURL+stopNumber;
 		String rawHTML = fetchHTML(fullURL);
-		List<Arrival>arrivals = extractArrivals(rawHTML);
-		return arrivals;
-
+		return extractArrivals(rawHTML);
 	}
 	
 	/**
@@ -94,10 +88,9 @@ public class Parser {
 	 */
 	public static void ensureCorrectDays(List<Arrival> arrivals){
 		Calendar now = GregorianCalendar.getInstance();
-		
+
 		int ampm = now.get(Calendar.AM_PM);
 		int daysPassed = 0;
-		Calendar last = now;
 		for(Arrival arr : arrivals){
 			//if switch
 			Calendar date = arr.getDate();
@@ -152,7 +145,8 @@ public class Parser {
 		//color
 		int colorIndex = entryString.indexOf("background-color");
 		String colorString = entryString.substring(colorIndex+18,colorIndex+25);
-		Color color = null; //new Color(Color.parseColor(colorString)); TODO
+        // TODO: Android can't use java.awt.color. find some other way to store this color
+        Color color = null; //new Color(Color.parseColor(colorString));
 		
 		return new Arrival(number,serviceString,time,color);
 
@@ -167,7 +161,7 @@ public class Parser {
 	}
 
 	public void fail(String text) {
-		System.err.println("An error occured: " + text);
+		System.err.println("An error occurred while parsing: " + text);
 		System.exit(1);
 	}
 }
