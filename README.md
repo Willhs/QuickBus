@@ -1,6 +1,7 @@
-WellingtonBus
-Wellington bus virtual timetables.
+=======
+QuickBus
+========
 
-Files/dirs which are important (others can be auto-generated):
+To see personal set up timetables and more
 
-/src /res/layout /res/values (will be important, not yet) AndroidManifest.xml
+Files are set up for use with Android Studio
