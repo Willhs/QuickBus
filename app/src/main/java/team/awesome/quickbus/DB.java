@@ -14,22 +14,11 @@ public class DB {
     private static Set<BusStop> favStops;
     private static Set<Integer> favServices; // e.g. 1 (Island Bay <-> Station)
 
-    public static Set<BusStop> getFavStops() {
-        return favStops;
-    }
-    public static Set<Integer> getFavServices() {
-        return favServices;
-    }
-    public static boolean addFavStop(BusStop bs){
-        return favStops.add(bs);
-    }
-    public static boolean addFavService(int service){
-        return favServices.add(service);
-    }
-    public static boolean removeFavStop(BusStop bs){
-        return favStops.remove(bs);
-    }
-    public static boolean removeFavService(int service){
-        return favServices.remove(service);
-    }
+    public static Set<BusStop> getFavStops() { return favStops; }
+    public static Set<Integer> getFavServices() { return favServices; }
+
+    public static boolean addFavStop(BusStop stop){ return favStops.add(stop); }
+    public static boolean addFavService(int service){ return favServices.add(service); }
+    public static boolean removeFavStop(BusStop stop){ return favStops.remove(stop); }
+    public static boolean removeFavService(int service){ return favServices.remove(service); }
 }
