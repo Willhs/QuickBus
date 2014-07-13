@@ -25,8 +25,9 @@ public class MapActivity extends Activity {
 	    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+            /*
         setContentView(R.layout.map_activity);
-        
+
         GoogleMap map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
         if (map == null) System.err.println("map couldn't be found");
         
@@ -36,16 +37,15 @@ public class MapActivity extends Activity {
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         Location currentPos = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         map.moveCamera( CameraUpdateFactory.newLatLngZoom(new LatLng(currentPos.getLatitude(), currentPos.getLongitude()), 14f));
-
-         // prints out stop info from metlink for busstop 3209
-            /*
+*/
+        // prints out stop info from metlink for busstop specified
+        // setContentView call must be before findViewById or else findViewById won't find the view and return null.
         setContentView(R.layout.test_text_view);
         testView = (TextView) findViewById(R.id.test_text);
-        if (testView == null) throw new IllegalStateException("text view is null just after instantiating! ");
 
+        int exampleStop = 3952;
+        new GetArrivalsTask().execute(exampleStop);
 
-        new GetArrivalsTask().execute();
-        */
     }
 
     public void switchToFavouritesActivity(View view){
@@ -56,11 +56,10 @@ public class MapActivity extends Activity {
 
         @Override
         protected List<Arrival> doInBackground(Integer... stopNumbers) {
-            return Parser.fetchStopInfo(3209);
+            return Parser.fetchStopInfo(stopNumbers[0]);
         }
 
         protected void onPostExecute(List<Arrival> arrivals){
-            if (testView == null) throw new IllegalStateException("text view is null in onPostExecute!");
             testView.setText(Arrays.toString(arrivals.toArray()));
         }
     }

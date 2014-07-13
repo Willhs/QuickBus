@@ -27,9 +27,9 @@ public class Parser {
 
             URL url = new URL(urlString);
             HttpURLConnection httpCon = (HttpURLConnection) url.openConnection();
-            httpCon.addRequestProperty( // TODO: make relevant for android
+            httpCon.addRequestProperty( // Has been changed to be relevant for android
                     "User-Agent", System.getProperty("http.agent")//"Mozilla/5.0 (Linux; U; Android 4.0.3; ko-kr; LG-L160L Build/IML74K) AppleWebkit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30"
-            ); // Chrome/20 worked too
+            );
 
             BufferedReader in = new BufferedReader(new InputStreamReader(
                     httpCon.getInputStream()));
@@ -63,7 +63,6 @@ public class Parser {
      * @return ordered list of arrival objects
      */
     public static List<Arrival> extractArrivals(String rawHTML) {
-        if (rawHTML == null) throw new IllegalArgumentException("rawHTML is null");
         List<Arrival> arrivals = new ArrayList<Arrival>();
         String[] sections = rawHTML.split("<table><thead><tr><th>Service</th>");
 
