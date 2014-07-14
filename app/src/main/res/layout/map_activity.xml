@@ -14,12 +14,22 @@
           map:uiZoomControls="true" -->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="50dp"
+        android:orientation="horizontal">
         <Button
+            android:id="@+id/to_favs_button"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="@string/to_favs_button"
             android:onClick="switchToFavouritesActivity"/>
+        <Button
+            android:id="@+id/to_schedule_button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/to_sched_button"
+            android:layout_toRightOf="@id/to_favs_button"
+            android:onClick="switchToScheduleActivity"/>
         </RelativeLayout>
+
 
 </RelativeLayout>
