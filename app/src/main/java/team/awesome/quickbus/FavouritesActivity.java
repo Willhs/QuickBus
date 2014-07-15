@@ -31,7 +31,7 @@ public class FavouritesActivity extends Activity{
         favourites.addAll(DB.getFavStops());
         // Arg 2 of ArrayAdapter == layout which has a TextView, it then calls the toString on
         // each item in the collection, and puts it in the text view.
-        ArrayAdapter adapter = new ArrayAdapter<BusStop>(this, android.R.layout.simple_list_item_1, favourites);
+        ArrayAdapter<BusStop> adapter = new ArrayAdapter<BusStop>(this, android.R.layout.simple_list_item_1, favourites);
         favListView.setAdapter(adapter);
     }
 }
