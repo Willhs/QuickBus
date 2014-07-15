@@ -26,13 +26,13 @@ public class MapActivity extends Activity {
 
         setContentView(R.layout.map_activity);
 
-        GoogleMap map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
+        /*GoogleMap map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
 
         // intialise the camera to be on the user location
         map.setMyLocationEnabled(true);
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         Location currentPos = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        map.moveCamera( CameraUpdateFactory.newLatLngZoom(new LatLng(currentPos.getLatitude(), currentPos.getLongitude()), 14f));
+        map.moveCamera( CameraUpdateFactory.newLatLngZoom(new LatLng(currentPos.getLatitude(), currentPos.getLongitude()), 14f));*/
 
     }
 
@@ -41,7 +41,7 @@ public class MapActivity extends Activity {
         startActivity(intent);
     }
     public void switchToScheduleActivity(View view){
-        Intent intent = new Intent(this, ScheduleActivity.class);
+        Intent intent = new Intent(this, BusScheduleActivity.class);
         startActivity(intent);
     }
 
