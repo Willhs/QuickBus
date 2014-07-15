@@ -18,9 +18,13 @@ import java.util.List;
 
 import team.awesome.quickbus.bus.Arrival;
 
+/**
+ * The map 'view' of the app.
+ * Will show bus stops and enable selecting them (which might lead to an instance of ScheduleActivity).
+ */
 public class MapActivity extends Activity {
 
-	    @Override
+	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
