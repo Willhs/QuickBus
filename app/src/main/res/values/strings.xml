@@ -7,5 +7,9 @@
     <string name="to_favs_button">Favourites</string>
     <string name="title_activity_my">MyActivity</string>
     <string name="to_sched_button">Schedule</string>
+    <string name="map_title">QuickBus</string>
+    <string name="favs_title">Favourites</string>
+    <string name="sched_name">Schedule</string>
+    <string name="title_activity_get_arrivals_async_task">GetArrivalsAsyncTask</string>
 
 </resources>

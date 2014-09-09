@@ -1,14 +1,16 @@
-package team.awesome.quickbus;
+package team.awesome.quickbus.ui;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import team.awesome.quickbus.R;
+import team.awesome.quickbus.util.Scraper;
 import team.awesome.quickbus.bus.Arrival;
 
 /**
@@ -27,7 +29,7 @@ public class BusScheduleActivity extends Activity {
         arrivals = new ArrayList<Arrival>();
         int exampleStop = 3952;
         // populate arrivals.
-        new GetArrivalsTask().execute(exampleStop);
+        //new GetArrivalsTask().execute(exampleStop);
 
 
         ArrayAdapter<Arrival> adapter = new ArrayAdapter<Arrival>(this, android.R.layout.simple_list_item_1, arrivals);
@@ -38,9 +40,11 @@ public class BusScheduleActivity extends Activity {
 
     private class GetArrivalsTask extends AsyncTask<Integer, Void, List<Arrival>> {
 
+        //private ProgressDialog loadingDialog = new ProgressDialog(FavouritesActivity.this);
+
         @Override
         protected List<Arrival> doInBackground(Integer... stopNumbers) {
-            return Parser.fetchStopInfo(stopNumbers[0]);
+            return Scraper.fetchStopInfo(stopNumbers[0]);
         }
 
         protected void onPostExecute(List<Arrival> arrivals){

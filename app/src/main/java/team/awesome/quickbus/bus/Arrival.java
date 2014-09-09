@@ -11,18 +11,26 @@ import java.util.Calendar;
  */
 public class Arrival {
 	
-	private final int number;
+	private final int id;
 	private final String service;
-	private final Color color;
+	private final String colour;
 
 	private Calendar date;
+    private String timeTillArrival;
 
-	public Arrival(int number,String service,Calendar time,Color color){
-		this.number = number;		
+	public Arrival(int id, String service, Calendar time, String colour){
+		this.id = id;
 		this.service = service;
 		this.date = time;
-		this.color = color;
+		this.colour = colour;
 	}
+
+    public Arrival(int id, String service, String timeTillArrival, String colour){
+        this.id = id;
+        this.service = service;
+        this.timeTillArrival = timeTillArrival;
+        this.colour = colour;
+    }
 
 	public Calendar getDate() {
 		Calendar copy = Calendar.getInstance(date.getTimeZone());
@@ -35,18 +43,20 @@ public class Arrival {
 	}
 
 	public String toString(){
-		return "number "+ getNumber() +" to "+ getService() +" at "+date.getTime();
+		return "id "+ getId() +" to "+ getService() +" at "+timeTillArrival;
 	}
 
-    public int getNumber() {
-        return number;
+    public int getId() {
+        return id;
     }
 
     public String getService() {
         return service;
     }
 
-    public Color getColor() {
-        return color;
+    public String getColour() { return colour; }
+
+    public String getTimeTillArrival() {
+        return timeTillArrival;
     }
 }

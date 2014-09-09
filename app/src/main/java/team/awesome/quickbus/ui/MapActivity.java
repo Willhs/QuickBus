@@ -1,22 +1,17 @@
-package team.awesome.quickbus;
+package team.awesome.quickbus.ui;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
 import android.location.LocationManager;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 
 import com.google.android.gms.maps.*;
 import com.google.android.gms.maps.model.LatLng;
 
-import java.util.Arrays;
-import java.util.List;
-
-import team.awesome.quickbus.bus.Arrival;
+import team.awesome.quickbus.R;
 
 /**
  * The map 'view' of the app.
@@ -30,13 +25,15 @@ public class MapActivity extends Activity {
 
         setContentView(R.layout.map_activity);
 
-        /*GoogleMap map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
+        GoogleMap map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
 
         // intialise the camera to be on the user location
         map.setMyLocationEnabled(true);
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         Location currentPos = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        map.moveCamera( CameraUpdateFactory.newLatLngZoom(new LatLng(currentPos.getLatitude(), currentPos.getLongitude()), 14f));*/
+        if (currentPos != null) {
+            map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(currentPos.getLatitude(), currentPos.getLongitude()), 14f));
+        }
 
     }
 

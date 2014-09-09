@@ -1,4 +1,4 @@
-package team.awesome.quickbus;
+package team.awesome.quickbus.util;
 
 
 import java.io.BufferedReader;
@@ -52,10 +52,8 @@ public class FileManager {
 			br.close();
 
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return list;
@@ -83,10 +81,8 @@ public class FileManager {
 			br.close();
 
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return list;

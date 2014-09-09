@@ -1,5 +1,6 @@
-package team.awesome.quickbus;
+package team.awesome.quickbus.util;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import team.awesome.quickbus.bus.BusStop;
@@ -11,8 +12,8 @@ import team.awesome.quickbus.bus.BusStop;
  */
 public class DB {
 
-    private static Set<BusStop> favStops;
-    private static Set<Integer> favServices; // e.g. 1 (Island Bay <-> Station)
+    private static Set<BusStop> favStops = new HashSet<BusStop>();
+    private static Set<Integer> favServices = new HashSet<Integer>();// e.g. 1 (Island Bay <-> Station)
 
     public static Set<BusStop> getFavStops() { return favStops; }
     public static Set<Integer> getFavServices() { return favServices; }
